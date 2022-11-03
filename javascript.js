@@ -2,9 +2,7 @@ var id = null;
 const elem = document.getElementById("animate");
 let topPos = 0;
 let lefPos = 0;
-const stopBtn = document.getElementById("stop");
 const strtBtn = document.getElementById("start");
-stopBtn.disabled = true;
 
 adviceObject = {
 	'00':'Just Do It',
@@ -38,16 +36,19 @@ function Start() {
 		topPos = 0;
 		lefPos = 0;
 	}
+	strtBtn.innerHTML = "Processing..."
+	strtBtn.style.backgroundColor = "orange";
 	strtBtn.disabled = true;
-	stopBtn.disabled = false;
+	setTimeout(Stop, 4000)
+	function Stop() {
+		clearInterval(id);
+		let adviceName = `${parseInt(elem.style.top)/100}${parseInt(elem.style.left)/100}`
+		elem.innerHTML = adviceObject[adviceName]
+		elem.style.backgroundColor = 'red'
+		elem.style.fontWeight = 'bold';
+		strtBtn.innerHTML = "See ya in 24 hrs"
+		strtBtn.style.backgroundColor = "green"
+	}
 }
 
-function Stop() {
-	clearInterval(id);
-	let adviceName = `${parseInt(elem.style.top)/100}${parseInt(elem.style.left)/100}`
-	elem.innerHTML = adviceObject[adviceName]
-	elem.style.backgroundColor = 'red'
-	elem.style.fontWeight = 'bold';
-	strtBtn.disabled = false;
-	stopBtn.disabled = true;
-}
+
