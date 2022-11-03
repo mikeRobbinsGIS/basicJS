@@ -2,8 +2,11 @@
 	width: 400px;
 	height: 400px;
 	position: relative;
-	background: black;
+	border: 2px solid green;
+	background: none;
 	margin: 0 auto;
+	border-radius: 2px;
+	z-index: 2;
 }
 
 #animate {
@@ -11,10 +14,35 @@
 	height: 100px;
 	position: absolute;
 	background-color: none;
-	vertical-align: middle;
 	text-align: center;
+	color: white;
+	border-radius: 5px;
+	z-index: 1;
+	display: flex;
+	font-size: 20px;
+	border: 2px;
 }
 
 #wrapper {
     text-align: center;
+}
+
+.crop {
+    width: 400px;
+    height: 100px;
+    overflow: hidden;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 500px
+}
+
+.crop img {
+    width: 450px;
+    height: auto;
+    margin: -110px -25px;
+}
+
+body {
+	background-color: black !important;
 }

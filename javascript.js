@@ -25,14 +25,14 @@ adviceObject = {
 	'33':"Give Up, Try Again",
 }
 
-
 function Start() {
 	elem.innerHTML = '';
-	elem.style.backgroundColor = 'red';
+	elem.style.backgroundColor = 'white';
+	elem.style.border = '2px solid white';
 	id = setInterval(frame, 40);
 	function frame() {
-		topPos = topPos + Math.floor(Math.random()*4) * 100;
-		lefPos = lefPos + Math.floor(Math.random()*4) * 100;
+		topPos += Math.floor(Math.random()*4) * 100;
+		lefPos += Math.floor(Math.random()*4) * 100;
 		elem.style.top = topPos + "px"; 
 		elem.style.left = lefPos + "px";
 		topPos = 0;
@@ -41,11 +41,12 @@ function Start() {
 	strtBtn.disabled = true;
 	stopBtn.disabled = false;
 }
+
 function Stop() {
 	clearInterval(id);
 	let adviceName = `${parseInt(elem.style.top)/100}${parseInt(elem.style.left)/100}`
 	elem.innerHTML = adviceObject[adviceName]
-	elem.style.backgroundColor = 'purple'
+	elem.style.backgroundColor = 'red'
 	elem.style.fontWeight = 'bold';
 	strtBtn.disabled = false;
 	stopBtn.disabled = true;
